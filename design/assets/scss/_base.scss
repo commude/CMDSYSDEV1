@@ -1,0 +1,137 @@
+/**************************************
+	
+	BASE
+
+***************************************/
+/* ---------------------------------------------------------
+スタイルリセット
+----------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style:normal;
+}
+
+h1,h2,h3,h4,h5,h6,td,th,p,ul,li,dt,dd {
+	font-size: 1em;
+	line-height: 1;
+	// font-weight: 500;
+}
+
+ul li {
+	list-style: none;
+}
+
+article, header, footer, aside, figure, figcaption, nav, section { 
+	display:block;
+}
+
+body {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+section {
+	line-height: 0;
+
+	*:not(img) {
+		line-height: 1;
+	}
+}
+
+img{
+	width: 100%;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	cursor: pointer;
+	transition: all 0.25s linear;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+b {
+	font-weight: 600;
+}
+
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: 100%;
+  box-sizing: border-box;
+}
+
+button {
+	cursor: pointer;
+	text-align: center;
+	transition: all 0.5s ease;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+	backface-visibility: hidden;
+}
+
+*:focus {
+	outline: none;
+}
+
+/* ---------------------------------------------------------
+変数
+----------------------------------------------------------*/
+/*break point
+-----------------------*/
+$pcSize: 1440px;
+$pcMin: 1100px;
+$mobileSize: 768px;
+
+/*color
+-----------------------*/
+$shadow: #1f1f1f;
+$red : #cc0000;
+$blue : #6699ff;
+
+$dark: #111;
+$black: #000;
+$white: #fff;
+$dirtywhite: #f1f1f1;
+$gray01: #afafaf;
+$gray02: #fafafa;
+$gray03: #7a7a7a;
+$gray04: #f5f5f5;
+
+/*font family
+-----------------------*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:300,400,500,700');
+$noto: 'Noto Sans JP', 'Times New Roman', 'Hiragino Mincho ProN', sans-serif;
+$roboto: 'Roboto', sans-serif;

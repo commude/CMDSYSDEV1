@@ -1,0 +1,499 @@
+/******************************************
+
+ENTRY
+
+******************************************/
+
+.entry {
+	padding-top: 0;
+	width: 100%;
+	height: calc(100vh - 15px);
+	background-image: url('../img/entry/entry_bg.png');
+	@include background;
+	@include flex(center, center);
+	font-size: 14px;
+
+	.form {
+		border-radius: 15px;
+		padding: 60px 80px 46px;
+		box-shadow: 2px 2px 15px #888888;
+		background-color: #fff;
+		min-width: 660px;
+		min-height: 760px;
+	}
+
+	&__logo {
+		max-width: 320px;
+		margin: 0 auto;
+		margin-bottom: 57.5px;
+	}
+
+	&__container {
+		position: relative;
+		width: 490px;
+		height: 100%;
+		min-height: 750px;
+		@include flex(center, center);
+		background-color: $gray02;
+
+		&.user_entry {
+			align-items: flex-end;
+		}
+	}
+
+	&__content {
+		width: 100%;
+		padding: 55px;
+	}
+
+	&__result {
+		h2 {
+			padding: 20px 0 35px;
+			font-size: 30px;
+			text-align: center;
+
+			&.pb_0 {
+				padding-bottom: 0;
+			}
+		}
+		img {
+			margin: 0 auto;
+			margin-top: 30px;
+			width: 200px;
+			height: 200px;
+			display: block;
+		}
+		&-note {
+			margin-top: 30px;
+
+			&.bottom {
+				margin-top: 60px;
+			}
+
+			p {
+				font-size: 16px;
+				line-height: 1.81;
+				text-align: center;
+					
+				&.left {
+					text-align: left;
+				}
+			}
+		}
+	}
+
+	&__message {
+		margin-bottom: 60px;
+
+		p {
+			font-size: 14px;
+			line-height: 1.6;
+			text-align: center;
+		}
+
+		&.less-bottom {
+			margin-bottom: 30px;
+		}
+		.red {
+			color: red;
+		}
+	}
+
+	&__divider {
+		position: relative;
+		width: 100%;
+		text-align: center;
+		margin-top: 50px;
+		font-size: 16px;
+
+		&::before, &::after {
+			content: '';
+			position: absolute;
+			top: calc(50% - 1px);
+			width: calc(50% - 20px);
+			height: 1px;
+			background-color: red;
+		}
+
+		&::before {
+			left: 0;
+		}
+
+		&::after {
+			right: 0;
+		}
+	}
+
+
+	.btn--reissue {
+		margin: 0 auto;
+	}
+
+	&__social {
+		margin: 0 auto;
+		margin-top: 30px;
+		width: 272px;
+		font-size: 0;
+
+		.social__btn {
+			@include flex(center, center);
+			@include transition();
+			margin-left: 40px;
+			width: 64px;
+			display: inline-block;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+
+	&__signup-note {
+		margin: 0 auto;
+		margin-bottom: 30px;
+		width: fit-content;
+
+		p {
+			font-size: 16px;
+			line-height: 1.81;
+			text-align: center;
+
+			span {
+				&.red {
+					display: block;
+					color: $red;
+				}
+			}
+		}
+	}
+
+	&__bottom-note {
+		margin-top: 45px;
+		p {
+			font-size: 16px;
+			line-height: 1.81;
+			text-align: center;
+		}
+	}
+
+	.form_input {
+		position: relative;
+		margin: 20px 0;
+
+        &.error {
+            input[type="text"], 
+            input[type="password"], 
+            input[type="email"] {
+                border-color: red;
+                color: red;
+                &::placeholder {
+                	color: red;
+				}
+            }
+
+			&.form_input--username {
+				span::before {
+					background-image: url('../img/icon_user_active.png');
+				}
+			}
+
+			&.form_input--mail {
+				span::before {
+					background-image: url('../img/icon_mail_active.png');
+				}
+			}
+
+			&.form_input--password {
+				span::before {
+					background-image: url('../img/icon_lock_active.png');
+				}
+			}
+        }
+
+		input[type="text"], 
+		input[type="password"], 
+		input[type="email"] {
+			width: 100%;
+			border: none;
+			border: 1px solid #000;
+			padding: 18px 0;
+			padding-left: 71px;
+			background: none;
+			border-radius: 25px;
+			font-size: 16px;
+			box-sizing: border-box;
+		}
+
+		span::before {
+			content: '';
+			position: absolute;
+			@include background;
+			left: 32px;
+			top: 0;
+			background-size: 100%;
+		}
+
+		&--code {
+			margin-bottom: 100px;
+		}
+
+		&--username {
+
+			span::before {
+				content: '';
+				background-image: url('../img/icon_user.png');
+				width: 18px;
+				height: 21px;
+				top: calc(50% - 10.5px);
+			}
+		}
+
+		&--mail {
+
+			span::before {
+				content: '';
+				background-image: url('../img/icon_mail.png');
+				width: 19px;
+				height: 15px;
+				top: calc(50% - 7.5px);
+			}
+		}
+
+
+		&--password {
+
+			span::before {
+				content: '';
+				background-image: url('../img/icon_lock.png');
+				width: 15px;
+				height: 22px;
+				top: calc(50% - 11px);
+			}
+		}
+
+		&--savepass {
+			height: 18px;
+			margin-top: 30px;
+			@include flex(center, center);
+		}
+
+		&--submit {
+			margin: 0 auto;
+			margin-top: 30px;
+		}
+
+		.btn {
+			margin: 0 auto;
+			border: 1px solid black;
+			border-radius: 30px;
+			width: 340px;
+			height: 60px;
+			background-color: black;
+			display: block;
+			@include transition;
+
+			&:hover {
+				background-color: #fff;
+				color: black;
+			}
+		}
+	}
+
+	.forgot_pass {
+		margin-top: 30px;
+
+		a {
+			font-size: 16px;
+			line-height: 2.5;
+			opacity: 0.5;
+			text-align: center;
+
+			&:hover {
+				opacity: 0.6;
+			}
+		}
+
+	}
+
+}
+
+
+@media screen and (max-height:761px) {
+	.entry {
+		font-size: 12px;
+	
+		.form {
+			padding: 30px 40px 23px;
+			min-width: 0;
+			min-height: 575px;
+		}
+	
+		&__logo {
+			max-width: 320px;
+			margin: 0 auto;
+			margin-bottom: 28.5px;
+		}
+	
+		&__container {
+			position: relative;
+			height: auto;
+			min-height: 0;
+		}
+	
+		&__content {
+			padding: 28px;
+		}
+	
+		&__result {
+			h2 {
+				padding: 15px 0 20px;
+				font-size: 24px;
+				text-align: center;
+	
+				&.pb_0 {
+					padding-bottom: 0;
+				}
+			}
+			img {
+				margin: 0 auto;
+				margin-top: 20px;
+				width: 125px;
+				height: 125px;
+			}
+			&-note {
+				margin-top: 20px;
+	
+				&.bottom {
+					margin-top: 29px;
+				}
+	
+				p {
+					font-size: 14px;
+				}
+			}
+		}
+	
+		&__message {
+			margin-bottom: 40px;
+			font-size: 12px;
+			line-height: 1.7;
+
+			&.less-bottom {
+				margin-bottom: 20px;
+			}
+		}
+	
+		&__divider {
+			margin-top: 35px;
+		}
+	
+		&__social {
+			margin-top: 20px;
+			width: 200px;
+			font-size: 0;
+	
+			.social__btn {
+				@include flex(center, center);
+				@include transition();
+				margin-left: 20px;
+				width: 53px;
+				display: inline-block;
+	
+				&:first-child {
+					margin-left: 0;
+				}
+	
+				img {
+					max-width: 100%;
+				}
+			}
+		}
+
+		&__signup-note {
+			margin-bottom: 20px;
+	
+			p {
+				font-size: 14px;
+				line-height: 1.81;
+				text-align: center;
+			}
+		}
+	
+		&__bottom-note {
+			margin-top: 45px;
+			p {
+				font-size: 11px;
+				line-height: 1.81;
+				text-align: center;
+			}
+		}
+	
+		.form_input {
+			position: relative;
+			margin: 20px 0;
+	
+			input[type="text"], 
+			input[type="password"], 
+			input[type="email"] {
+				font-size: 12px;
+			}
+	
+			&--code {
+				margin-bottom: 100px;
+			}
+	
+			&--username {
+				span::before {
+					background-image: url('../img/icon_user.png');
+					width: 18px;
+					height: 21px;
+					top: calc(50% - 10.5px);
+				}
+			}
+	
+			&--mail {
+				span::before {
+					background-image: url('../img/icon_mail.png');
+					width: 19px;
+					height: 15px;
+					top: calc(50% - 7.5px);
+				}
+			}
+	
+	
+			&--password {
+				span::before {
+					background-image: url('../img/icon_lock.png');
+					width: 15px;
+					height: 22px;
+					top: calc(50% - 11px);
+				}
+			}
+	
+			.btn {
+				margin-top: 7px;
+				height: 45px;
+	
+				&:hover {
+					background-color: #fff;
+					color: red;
+				}
+			}
+		}
+	
+		.forgot_pass {
+	
+			a {
+				font-size: 12px;
+				line-height: 2.5;
+				opacity: 0.5;
+			}
+	
+		}
+	
+	}
+}

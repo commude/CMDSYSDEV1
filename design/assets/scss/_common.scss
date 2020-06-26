@@ -1,0 +1,587 @@
+/******************************************
+
+COMMON
+
+******************************************/
+
+.container {
+	max-width: 1440px;
+	min-width: 1200px;
+	width: 100%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.flex {
+	@include flex(center, center);
+}
+
+.full {
+	width: 100% !important;
+}
+
+.semi-full {
+	width: calc(100% - 360px) !important;
+}
+
+/****************elements****************/
+input {
+	&:focus {
+		outline: none;
+	}
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+
+	li {
+		list-style-type: none;
+	}
+}
+
+/****************gridding****************/
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&--left {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	&--start {
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+}
+
+.col_1 { width: calc(8.33% - 10px); }
+.col_2 { width: calc(16.66% - 10px); }
+.col_3 { width: calc(25% - 10px); }
+.col_4 { width: calc(33.33% - 10px); }
+.col_5 { width: calc(41.66% - 10px); }
+.col_6 { width: calc(50% - 10px); }
+.col_7 { width: calc(58.33% - 10px); }
+.col_8 { width: calc(66.66% - 10px); }
+.col_9 { width: calc(75% - 10px); }
+.col_10 { width: calc(83.33% - 10px); }
+.col_11 { width: calc(91.66% - 10px); }
+.col_12 { width: 100%; }
+
+
+/*************styled checkbox*************/
+.custom_checkbox {
+    display: block;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.4;
+   	user-select: none;
+
+   	input {
+   		position: absolute;
+   		top: 0;
+   		left: 0;
+   		width: 100%;
+   		height: 100%;
+    	opacity: 0;
+    	cursor: pointer;
+    	z-index: 10;
+
+    	&:checked ~ .checkmark {
+	    	background-color: black;
+
+    		&::after {
+    			display: block;
+    		}
+    	}
+   	}
+
+   	.checkmark {
+   		position: absolute;
+	    top: calc(50% - 10.5px);
+	    left: 0;
+	    height: 20px;
+	    width: 20px;
+	    border: 1px solid black;
+	    border-radius: 3px;
+	    z-index: 1;
+
+	    &::after {
+	    	content: "";
+		    position: absolute;
+		    display: none;
+		    right: 0;
+		    left: 0;
+		    margin: 0 auto;
+		    top: 0;
+		    width: 100%;
+		    height: 100%;
+		    background-color: #000;
+	    }
+   	}
+}
+
+.custom_radio {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.5;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover input ~ .checkmark {
+	    background-color: #ccc;
+	}
+
+	&:before {
+	    content: '';
+	    position: absolute;
+	    top: 4px;
+	    left: 4px;
+	    width: 8px;
+	    height: 8px;
+	    border-radius: 50%;
+	    background: #fff;
+	    border: 1px solid #000;
+	    display: block;
+	    z-index: 1;
+	}
+
+    input {
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+
+	    &:checked ~ .checkmark {
+		    background-color: $white;
+		    border: 1px solid $black;
+
+		    &:after {
+    			display: block;
+		    }
+		}
+	}
+	
+	.checkmark {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    height: 18px;
+	    width: 18px;
+	    background-color: $white;
+	    border-radius: 50%;
+	    border: 1px solid $black;
+
+	    &:after {
+		    content: "";
+		    position: absolute;
+		    display: none;
+		 	top: calc(50% - 5px);
+		    left: calc(50% - 5px);
+		    width: 10px;
+		    height: 10px;
+		    border-radius: 50%;
+		    background: $black;
+		    z-index:1;
+	    }
+	}
+}
+
+/*the container must be positioned relative:*/
+.custom_select {
+ 	position: relative;
+  	font-size: 13px;
+ 	width: 320px;
+  	max-width: 100%;
+
+  	select {
+	  	display: none; /*hide original SELECT element:*/
+	}
+	.select-selected {
+	  	background-color: $white;
+	  	border-radius: 5px 5px 4px 4px;
+
+	  	&.select-arrow-active:after {
+		  border-color: transparent transparent $black transparent;
+		  top: 7px;
+		}
+
+	  	&:after {
+			position: absolute;
+			content: "";
+			top: calc(50% - 7px);
+			right: 14px;
+			width: 12px;
+			height: 10px;
+			@include background;
+			background-image: url('../img/ico_arrow_down_full.png');
+			// border: 6px solid transparent;
+			// border-color: $black transparent transparent transparent;
+		}
+	}
+	/*style the items (options), including the selected item:*/
+	.select-items div,.select-selected {
+	  color: $black;
+	  padding: 8px 16px;
+	  border: 1px solid #ccc;
+	  cursor: pointer;
+	  user-select: none;
+
+	}
+	/*style items (options):*/
+	.select-items {
+	  position: absolute;
+	  background-color: $white;
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	  z-index: 99;
+	  div {
+		  border-color: transparent #ccc #ccc #ccc;
+
+		  &:first-of-type {
+		  	display: none !important;
+		  }
+	  }
+	}
+	/*hide the items when the select box is closed:*/
+	.select-hide {
+	  display: none;
+	}
+	.select-items div:hover, .same-as-selected {
+	  background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+/* The container */
+.custom_cb {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+	/* On mouse-over, add a grey background color */
+	&:hover input ~ .checkmark {
+	    background-color: #ccc;
+	}
+
+    input {
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+
+	    &:checked ~ .checkmark {
+		    background-color: $white;
+		}
+	}
+
+	/* Show the checkmark when checked */
+	input:checked ~ .checkmark:after {
+	    display: block;
+	}
+
+	/* Create a custom checkbox */
+	.checkmark {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    height: 15px;
+	    width: 15px;
+	    background-color: $white;
+	    border: 1px solid $black;
+
+	    &:after {
+		    content: "";
+		    position: absolute;
+		    display: none;
+		    left: 4px;
+		    top: 2px;
+		    width: 3px;
+		    height: 7px;
+		    border: solid $black;
+		    border-width: 0 2px 2px 0;
+		    -webkit-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    transform: rotate(45deg);
+	    }
+	}
+}
+
+.form_container {
+	max-width: 600px;
+}
+
+
+/*****************buttons*****************/
+.form__btns {
+	margin-top: 50px;
+	@include flex(center, center);
+
+	.btn {
+		margin-right: 25px;
+		display: inline-block;
+		vertical-align: top;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.btn {
+	@include flex(center, center);
+	@include transition;
+	border-radius: 25px;
+	padding: 13px 55px;
+	cursor: pointer;
+	min-width: 320px;
+	max-width: 100%;
+
+	&--primary {
+		background-color: black;
+		color: $white;
+		border: 1px solid transparent;
+
+		&:hover {
+			border: 1px solid $black;
+			background-color: $white;
+			color: $black;
+		}
+	}
+
+	&--white {
+		border: 1px solid $black;
+		background-color: $white;
+		color: $black;
+
+		&:hover {
+			background-color: $black;
+			color: $white;
+			border: 1px solid transparent;
+		}
+	}
+
+	&--submit {
+		background-color: red;
+		color: $white;
+		border: 1px solid transparent;
+
+		&:hover {
+			border: 1px solid red;
+			background-color: $white;
+			color: red;
+		}
+	}
+
+	&--back {
+		background-color: #999;
+		color: #fff;
+		border: 1px solid transparent;
+
+		&:hover {
+			border: 1px solid #999;
+			background-color: #fff;
+			color: #000;
+		}
+	}
+}
+
+
+/*****************link*****************/
+.arrow_link {
+	margin-top: 12px;
+	@include flex(center, center);
+
+	a {
+		padding-right: 26px;
+		position: relative;
+		color: $gray03;
+		font-size: 15px;
+		line-height: 1.5;
+		cursor: pointer;
+		@include transition;
+		@include hoverOpacity;
+
+		&::after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			width: 25px;
+			background-image: url('../img/ico_arrow_right_blck.png');
+			@include background;
+			background-size: 15px;
+		}
+	}
+}
+
+
+/*************text colors*************/
+.txt--red {
+	color: $red;
+}
+
+.txt--toggle {
+	padding-left: 50px;
+	position: relative;
+	text-align: left;
+	@include flex(center, flex-start);
+
+	&::before, &::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 40px;
+		height: 100%;
+		@include background;
+		background-size: auto;
+	}
+
+	&::before {
+		left: 0;
+	}
+
+	&::after {
+		right: 10px;
+		background-image: url('../img/ico_arrow_down.png');
+		background-size: 14px;
+		transition: all 0.25s ease;
+	}
+
+	&:hover {
+		font-weight: 600;
+	}
+
+}
+
+
+main {
+	position: relative;
+	width: 100%;
+	@include background;
+	background-image: url('../img/bg.png');
+	padding-top: 90px;
+	@include flex(flex-start, flex-start);
+
+	&.login {
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	// &.dashboard {
+	// 	background-color: $white;
+	// 	background-image: none;
+	// }
+}
+
+
+
+/*****************table****************/
+.content_table {
+	padding: 20px 0 70px 20px;
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+
+		thead {
+			padding-bottom: 12px;
+		}
+
+		th, td {
+			border: none;
+			text-align: center;
+		}
+		th {
+			color: $white;
+			background-color: $black;
+			height: 40px;
+			padding: 0 20px;
+		}
+
+		td {
+			color: $black;
+			background-color: $white;
+			height: 40px;
+			padding: 0 20px;
+
+		}
+	}
+}
+
+/**************pagination**************/
+.content_pagination {
+	ul {
+		@include flex(center, center);
+		width: 220px;
+		margin: 0 auto 60px;
+
+		li {
+
+			a {
+				background-color: #fff;
+				height: 30px;
+				width: 30px;
+				margin: 10px;
+				text-align: center;
+				position: relative;
+				cursor: pointer;
+				border-radius: 10px;
+				border: 1px solid #ccc;
+				@include flex(center, center);
+
+				&.active {
+					background-color: $black;
+					color: $white;
+
+					&::before {
+						border: none !important;
+					}
+				}
+				
+			}
+
+			&:not(:first-of-type):not(:last-of-type) {
+				a {
+					&::before {
+					}
+				}
+			}
+
+		}
+	}
+}

@@ -1,0 +1,120 @@
+<html lang="ja">
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+
+    <title>Reset Password | Commude Philippines</title>
+
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+
+    <!-- js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="./js/main.js"></script> -->
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="main_header__logo">
+                <a href="index.html"><img src="./assets/img/commude_logo.png" alt=""></a>
+            </div>
+            <div class="main_header__nav">
+                <ul>
+                    <li>
+                        <div class="btns">
+                            <a href="../index.html" class="logout"></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- A. DASHBOARD -->
+    <div class="main_container dashboard">
+
+        <div class="main_content">
+
+            <div class="main_content__header">
+                <img class="users_icon" src="./assets/img/icon_users.png" alt="">
+                <p>Employees</p>
+                <a href="./"class="add"><img src="./assets/img/add_big.png" alt=""></a>
+				<a href="./" class="delete">Delete</a>
+            </div>
+
+            <div class="main_content__inner full-width">
+
+                <div class="landing">
+			        <div class="landing__form">
+				        <div class="form">
+				            <form action="dashboard/index.html">
+				                <div class="entry__message">
+				                    <p class="red">
+				                    	* Age field must be an integer. <br>
+										* Email Address already exists. <br>
+										* Employed_at field is required.
+				                    </p>
+				                </div>
+
+				                <form class="entry__form">
+
+				                    <div class="form_input">
+				                    	<p>Name</p>
+				                        <input type="text" name="" placeholder="Name" />
+				                    </div>
+
+				                    <div class="form_input">
+				                    	<p>Password</p>
+				                        <input type="password" name="" placeholder="Password" />
+				                    </div>
+
+				                    <div class="form_input">
+				                    	<p>Contact</p>
+				                        <input type="text" name="" placeholder="Contact" />
+				                    </div>
+
+				                    <div class="form_input">
+				                    	<p>Position</p>
+				                        <select name="">
+				                        	<option value="Web Dev">Web Dev</option>
+				                        	<option value="Web Dev">Web Dev</option>
+				                        </select>
+				                    </div>
+				                    <div class="form_input">
+				                    	<p>Email Address</p>
+				                        <input type="email" name="" placeholder="Email Address" />
+				                    </div>
+
+				                    <div class="form_input">
+				                    	<p>Employed At</p>
+				                        <input type="text" name="" placeholder="Position" />
+				                    </div>
+
+				                    <div class="form_input form_input--submit">
+				                    	<div class="btns">
+				                        	<input type="button" name="" value="Back" class="btn btn--back" />
+				                        	<input type="submit" name="" value="Login" class="btn btn--primary" />
+				                    	</div>
+				                    </div>
+				                </form>
+				            </form>
+				        </div>
+			        </div>
+                </div>
+            </div>
+    		<footer class="footer"><p>© COMMUDE PHILIPPINES INC</p></footer>
+        </div>
+    </div>
+    <!-- /A. DASHBOARD -->
+
+
+    <!-- <script src="/assets/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/assets/js/vendor/datatables.min.js"></script>
+    <script src="/assets/js/main.js"></script> -->
+</body>
+
+</html>

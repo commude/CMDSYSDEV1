@@ -1,0 +1,474 @@
+.app {
+
+	&.main_content {
+		@include background;
+		background-image: url(../img/bg.png);
+	}
+
+	&__content {
+		background-color: $white;
+		border-radius: 10px;
+		-webkit-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.15);
+		-moz-box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.15);
+		box-shadow: 0px 0px 8px -2px rgba(0, 0, 0, 0.15);
+		padding: 40px 45px;
+		width: 100%;
+		margin-top: 20px;
+	}
+
+	&__item {
+		@include flex(flex-start, space-between);
+
+		.content {
+			width: calc(100% - 300px);
+		}
+
+		.app_header {
+			@include flex(center, space-between);
+
+			.logo {
+				@include flex(center, flex-start);
+
+				img {
+					width: 50px;
+					margin-right: 20px;
+				}
+				span {
+					font-size: 15px;
+				}
+			}
+
+			.date {
+				font-size: 14px;
+				padding-left: 11px;
+				border-left: 1px solid #ccc;
+			}
+		}
+
+		.app_detail {
+			margin-top: 40px;
+			line-height: 1.78;
+		}
+
+		.btn_container {
+			width: 210px;
+			margin-top: 10px;
+
+			.btn {
+				border-radius: 0;
+				height: 40px;
+				margin: 0;
+
+				&:first-of-type {
+					margin: 0 0 40px;
+				}
+			}
+		}
+	}
+
+	&__breadcrumb {
+		width: 100%;
+
+		ul {
+			width: 100%;
+			@include flex(center, space-between);
+			position: relative;
+
+			li {
+				line-height: 1.6;
+
+				&.active {
+					font-weight: 900;
+				}
+
+				&:nth-of-type(2) {
+
+					&::before,
+					&::after {
+						content: '';
+						position:absolute;
+						height: 1px;
+						background-color: #989898;
+						top: 50%;
+					}
+
+					&::before {
+						left: 115px;
+						width: calc(50% - 180px);
+					}
+
+					&::after {
+						right: 80px;
+						width: calc(50% - 180px);
+					}
+
+					span {
+						position: relative;
+						display: block;
+						padding: 0 36px 0 40px;
+
+/*						&::before,
+						&::after {
+							content: '';
+							position:absolute;
+							width: 9px;
+							height: 16px;
+							@include background;
+							background-image: url('../img/ico_right.png');
+							top: 0;
+						}
+
+						&::before {
+							left: 0;
+						}
+
+						&::after {
+							right: 0;
+						}*/
+					}
+				}
+			}
+		}
+	}
+}
+
+.app_container {
+	width: 100%;
+	@include flex(center, flex-start);
+	padding: 0 100px 0 60px;
+}
+
+.add_app {
+	width: 100%;
+	max-width: 1150px;
+	height: 300px;
+	@include flex(center, center);
+	background-color: $white;
+	border-radius: 10px;
+	border: 1px solid #bfbfbf;
+	border-style: dashed;
+	margin-top: 30px;
+
+	&__btn {
+		font-size: 22px;
+		letter-spacing: 0.2em;
+		height: 35px;
+		padding-left: 65px;
+		background-size: 35px;
+		background-repeat: no-repeat;
+		background-position: left 0 center;
+		background-image: url('../img/ico_plus-01.png');
+		@include flex(center, flex-start);
+	}
+}
+
+.app_form_container {
+	position: relative;
+	@include flex(flex-start, space-between);
+}
+
+.app_form {
+	padding-right: 45px;
+    border-right: 1px solid #bfbfbf;
+    width: 72%;
+
+    &.no-border {
+    	border-right: none;
+    }
+
+    &.full {
+		padding-right: 0;
+    	width: 100%;
+    	border-right: none;
+    }
+
+	&__title {
+		font-size: 18px;
+		@include flex(center, flex-start);
+
+		&.center {
+			span {
+				margin: 0 auto;
+			}
+		}
+
+	    .logo {
+	    	width: 35px;
+	    	vertical-align: middle;
+	    	margin-right: 18px;
+	    }
+
+	    .app-logo {
+	    	width: 120px;
+	    	vertical-align: middle;
+	    	margin-right: 18px;
+	    }
+
+		span {
+			font-weight: bold;
+			text-align: left;
+		}
+
+		.date {
+			margin-left: auto;
+			float: right;
+		}
+	}
+
+	&__content {
+		margin-top: 25px;
+		min-height: 380px;
+		position: relative;
+
+		.title {
+			font-size: 14px;
+			font-weight: 500;
+			margin-bottom: 50px;
+			line-height: 1.6;
+
+			a {
+				text-decoration: underline;
+				display: inline;
+				color: blue;
+				@include transition;
+				@include hoverOpacity;
+			}
+
+			&.center {
+				text-align: center;
+			}
+		}
+	}
+
+	&__upload {
+		position: relative;
+	    width: 100%;
+	    border: 1px dashed #bfbfbf;
+	    border-radius: 5px;
+	    text-align: center;
+	    padding: 55px;
+	    cursor: pointer;
+
+	    input {
+    	    position: absolute;
+		    margin: 0;
+		    padding: 0;
+		    width: 100%;
+		    height: 100%;
+		    outline: none;
+		    opacity: 0;
+		    left: 0;
+	    }
+
+	    .ico_upload {
+			width: 45px;
+	    }
+
+	    .text {
+	    	padding-top: 36px;
+	    	line-height: 1;
+	    }
+	}
+
+	.form_input {
+		label {
+			width: 95px;
+		}
+	}
+
+	// radio buttons 
+	.env_rb {
+	    width: calc(33.33% - 15.4px);
+	    height: 210px;
+	    @include flex(center, center);
+
+	    &.ios,
+	    &.android {
+	    	img {
+	    		width: 52px;
+	    		padding-bottom: 40px;
+	    	}
+	    }
+
+	    &.unity {
+	    	img {
+	    		width: 130px;
+    		    padding-bottom: 46px;
+	    	}
+	    }
+
+	    &.phonegap {
+	    	img {
+	    		width: 65px;
+	    		padding-bottom: 20px;
+	    	}
+	    }
+
+		input[type="radio"] {
+			opacity: 0;
+
+			&:checked + label {
+				-webkit-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+			    -moz-box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+			    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+			}
+		}
+
+		label {
+			width: 100%;
+			height: 100%;
+		    @include flex(center, center);
+		    flex-direction: column;
+	        box-sizing: border-box;
+		    border-radius: 5px;
+		    -webkit-box-shadow: 0px 2px 10px 0px rgba(179, 179, 179, 0.5);
+		    -moz-box-shadow: 0px 2px 10px 0px rgba(179, 179, 179, 0.5);
+		    box-shadow: 0px 2px 10px 0px rgba(179, 179, 179, 0.5);
+		    text-align: center;
+		    letter-spacing: 0.08em;
+		    cursor: pointer;
+		    transition: all 0.25s ease;
+		}
+	}
+
+	.btn_container {
+		@include flex(flex-start, space-between);
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+
+		.btn {
+			width: calc(50% - 12px);
+			margin: 55px 0 10px;
+			font-weight: 900;
+			border-radius: 20px;
+
+			&.single {
+				margin: 0 auto;
+			}
+		}
+	}
+}
+
+.app_full_form {
+	margin-top: 38px;
+
+	.form_input {
+		@include flex(center, flex-start);
+
+		&.block {
+			label {
+				display: block;
+				margin-bottom: 10px;
+				width: 100%;
+				width: fit-content;
+				font-weight: 900;
+			}
+
+			input[type="text"],
+			input[type="email"],
+			input[type="password"],
+			input[type="number"],
+			textarea {
+				display: block;
+			}
+		}
+		
+		label {
+			width: 100px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		input[type="text"],
+		input[type="email"],
+		input[type="password"],
+		input[type="number"],
+		textarea {
+			width: calc(100% - 120px);
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		textarea {
+			height: 100px;
+		}
+
+		.custom_input_btn {
+
+			button {
+				color: $white;
+				background-color: $blue;
+				width: 190px;
+				height: 40px;
+				@include flex(center, center);
+				border-radius: 5px;
+			}
+
+			input[type="file"] {
+				position: absolute;
+				left: 0;
+				top: 0;
+				opacity: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+.app_nav {
+	width: 28%;
+	padding-left: 40px;
+
+	ul {
+		li {
+			display: block;
+			margin-bottom: 20px;
+
+			a {
+				@include flex(center, flex-start);
+
+				&.active {
+					span {
+						background-color: $black;
+						color: $white;
+					}
+				}
+
+				&:hover {
+					span {
+						background-color: rgba(0, 0, 0, .1);
+						color: $black;	
+					}
+				}
+
+				span {
+					height: 40px;
+					width: 40px;
+					@include flex(center, center);
+					border-radius: 100%;
+					border: 1px solid $black;
+					margin-right: 15px;
+					font-size: 16px;
+					transition: all 0.25s ease;
+				}
+			}
+		}
+	}
+}
+
+.app_btns {
+	width: 28%;
+	padding-left: 40px;
+
+	a {
+		margin-top: 15px;
+		border-radius: 20px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
